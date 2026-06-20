@@ -6,6 +6,11 @@
 
 LACUNA Chain exploits executable code regions with no `.pdata` `RUNTIME_FUNCTION` coverage ("lacunae") across `ntdll`, `kernelbase`, `wow64`, and `win32u` to build a fake but structurally valid call stack. When ETW-Ti fires an APC during `NtDelayExecution(alertable)`, the kernel unwinds through ghost frames instead of real callers — every layer passes `RtlLookupFunctionEntry` as a leaf with no unwind record, so the chain survives both frame-pointer and unwind-based walks.
 
+<img width="2084" height="843" alt="image" src="https://github.com/user-attachments/assets/cda5b918-9a97-47ae-ad23-31ad24c91209" />
+
+<img width="1969" height="660" alt="image" src="https://github.com/user-attachments/assets/4a6d53ff-e351-43fd-aae3-7615a90cbdb8" />
+
+
 ## Techniques
 
 | # | Technique | Description |
